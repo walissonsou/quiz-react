@@ -1,0 +1,24 @@
+Welcome{
+  display: flex;
+  text-align: center;
+  max-width: 500px;
+  justify-content: center;
+  
+}
+#welcome h2
+#welcome p {
+  margin-bottom: 1rem;
+}
+
+#welcome p {
+  margin-top: 1rem;
+  color: red;
+}
+#welcome button{
+  margin-top: 1rem;
+}
+
+#welcome img {
+  margin-top: 1rem;
+  max-width: 350px;
+}
