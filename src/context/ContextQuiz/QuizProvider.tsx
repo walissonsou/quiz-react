@@ -1,37 +1,39 @@
 import { myQuiz } from "./myQuiz";
+import { useReducer } from 'react';
 import questions from '../../data/questions'
 
 export interface AppContextInterface {
-  name: string;
-  author: string;
-  url: string;
+  gameStage: string[],
+  questions: string;
 }
-
-// const STAGES = ['Start', 'Playing', 'End']
+// estágios do jogo
+const STAGES = ['Start', 'Playing', 'End']
   
-// const initialState = {
-//   gameStage: STAGES[0],
-//   questions
-// }
+//estágio inicial para o useReducer, mesma coisa do useState.
+
+const initialState = {
+  gameStage: STAGES[0],
+  questions,
+
+}
 
 export const ContextProvider = ({children}: any) => {  
-  const sampleAppContext : AppContextInterface = 
-  { 
-    name: "Using React Context in a Typescript App",
-    author: "thehappybug",
-    url: "http://www.example.com",
-}
-
-  // const quizReducer = (state, action) =>  {    
-    
-  //   switch (action.type) {
-  //     case "CHANGE_STATE": 
-  //       return state        
-  //     default: 
-  //       return state
-  //     }
-  //   }
   
+  
+  // state -> initialstate
+  // action -> ação que o usuário faz
+  const quizReducer = (state, action) =>  {    
+    console.log(state, action)
+    switch (action.type) {
+      case "CHANGE_STATE": 
+        return state        
+      default: 
+        return state
+      }
+    }
+
+    const sampleAppContext = useReducer(quizReducer, initialState)
+    
   return (
     <myQuiz.Provider value={sampleAppContext} > 
       {children}
