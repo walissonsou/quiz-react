@@ -1,4 +1,8 @@
 import { createContext } from 'react';
-import { AppContextInterface } from './QuizProvider';
 
-export const myQuiz = createContext<AppContextInterface | null>(null)
+interface AppContextInterface {
+  gameStage: string[];
+  questions: string[];
+}
+
+export const myQuiz = createContext<AppContextInterface | undefined>(undefined)
